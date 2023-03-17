@@ -1,0 +1,27 @@
+---
+
+- name: Wait for port 22 to become open, wait for 2 seconds
+  wait_for:
+    port: 22
+    delay: 2
+
+- name: Fetch any new FreeBSD updates
+  become: yes
+  become_user: root
+  shell: freebsd-update fetch
+  when: ansible_distribution == 'FreeBSD'
+  register: result_update
+  changed_when: "'No updates needed' not in result_update.stdout"
+
+- debug: var=result_update
+  when: result_update.changed
+
+- name: Install FreeBSD updates
+  become: yes
+  become_user: root
+  shell: freebsd-update install
+  when: ansible_distribution == 'FreeBSD' and result_update.changed
+  register: result_update_install
+
+- debug: var=result_update_install
+  when: result_update_install.changed

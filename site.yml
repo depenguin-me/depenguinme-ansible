@@ -1,0 +1,22 @@
+---
+
+- name: Ansible version check
+  any_errors_fatal: true
+  import_playbook: playbooks/ansible-version.yml
+
+- name: Connect to rescue system and download depenguin.me installer
+  any_errors_fatal: true
+  import_playbook: playbooks/depenguin-init.yml
+
+- name: Connect to depenguin.me installer and perform installation steps
+  any_errors_fatal: true
+  import_playbook: playbooks/depenguin-install.yml
+
+- name: Connect to rescue system and reboot
+  any_errors_fatal: true
+  import_playbook: playbooks/exit-rescue.yml
+
+- name: Connect to resulting BSD host and perform upgrades
+  any_errors_fatal: true
+  import_playbook: playbooks/live-system.yml
+

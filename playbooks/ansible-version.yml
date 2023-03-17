@@ -1,0 +1,17 @@
+---
+
+- hosts: localhost:all
+  gather_facts: false
+  vars:
+    ansible_required_version: "2.11.3"
+  pre_tasks:
+    - name: Verify we are running the right ansible version
+      assert:
+        that: "ansible_version.full is
+          version('{{ansible_required_version}}', '>=')"
+        msg: "This playbook only runs with Ansible version \
+          {{ansible_required_version}} or newer"
+      any_errors_fatal: true
+      run_once: true
+      tags:
+       - always

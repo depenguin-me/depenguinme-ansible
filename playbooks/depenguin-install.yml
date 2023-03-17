@@ -1,0 +1,8 @@
+---
+
+- hosts: depenguinme
+  remote_user: {{ my_default_username }}
+  roles:
+    - create_depenguinme_settings_file
+    - run_depenguinme_installer
+

@@ -1,0 +1,20 @@
+---
+
+- name: Wait for port 22 to become open, wait for 2 seconds
+  wait_for:
+    port: 22
+    delay: 2
+
+- name: Download depenguin.me installer file
+  become: yes
+  become_user: root
+  shell:
+    cmd: |
+      wget {{ depenguin_dl_url }} -O {{ depenguin_dl_filename }}
+
+- name: Set executable permissions depenguin.me installer
+  ansible.builtin.file:
+    path: "/root/{{ depenguin_dl_filename }}"
+    mode: '0755'
+    owner: root
+    group: root

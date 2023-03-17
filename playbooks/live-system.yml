@@ -1,0 +1,7 @@
+---
+
+- hosts: bsd
+  remote_user: {{ my_default_username }}
+  roles:
+    - update_freebsd
+    - update_packages

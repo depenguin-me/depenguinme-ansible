@@ -1,0 +1,7 @@
+---
+
+- hosts: linux
+  remote_user: {{ linux_username }}
+  roles:
+    - check_if_installer_finished
+    - exit_rescue_system
