@@ -18,15 +18,15 @@ conf_disks="ada0 ada1"
 conf_disktype=mirror
 run_installer=1
 
+# replace your.server.hostname where applicable
 [myhosts]
 your.server.hostname
 
-# do not edit below here unless you know what you're doing
 [linux]
-myhosts[1:1] ansible_port=22
+linux ansible_host=your.server.hostname ansible_port=22
 
 [depenguinme]
-myhosts[1:1] ansible_port=1022
+depenguininstaller ansible_host=your.server.hostname ansible_port=1022
 
 [bsd]
-myhosts[1:1] ansible_port=22
+your.server.hostname ansible_host=your.server.hostname ansible_port=22
