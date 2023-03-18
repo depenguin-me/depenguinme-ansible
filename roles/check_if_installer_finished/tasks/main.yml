@@ -11,3 +11,10 @@
       ps -ef | grep qemu-system-x86_64
   register: qemucheck
 - debug: var=qemucheck
+
+# I don't know how to make use of the above yet
+# temporary solutiuon for testing: strategic pause
+
+- name: Strategic pause for 1 min 
+  ansible.builtin.pause:
+    minutes: 1

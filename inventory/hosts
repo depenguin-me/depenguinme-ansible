@@ -4,6 +4,7 @@ depenguin_dl_filename=run.sh
 depenguin_my_pub_key=http://url.host/key.pub
 my_default_username=your-username
 linux_username=root
+caution_wipe_disks=yes
 conf_hostname=your.server.hostname
 conf_interface=igb0
 conf_ipv4=1.2.3.4

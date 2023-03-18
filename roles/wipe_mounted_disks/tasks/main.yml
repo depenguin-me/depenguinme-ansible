@@ -5,9 +5,9 @@
     port: 1022
     delay: 2
 
-- name: Run the depenguin.me installer
+- name: Wipe disks
   become: yes
   become_user: root
   shell:
     cmd: |
-      ./depenguin_bsdinstall.sh 
+      ./mfsbsd_clean.sh zroot {{ conf_disks }}
