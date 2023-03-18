@@ -15,6 +15,11 @@
   async: 1000
   poll: 0
 
-- name: Pause for 1 min to allow VM to start up
+# this pause is irritating
+# we want to watch for output of async process to equal
+#  Press CTRL-C to exit qemu
+# then continue with next task
+
+- name: Pause for 180 second to allow VM to start up
   ansible.builtin.pause:
-    minutes: 1
+    seconds: 180

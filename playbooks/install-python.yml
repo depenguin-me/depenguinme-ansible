@@ -1,0 +1,7 @@
+---
+
+- hosts: rawdepenguinme
+  remote_user: "{{ depenguinusername }}"
+  gather_facts: false
+  roles:
+    - install_python

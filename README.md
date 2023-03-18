@@ -19,5 +19,5 @@ Do not change the SSH port assignments!
 To run, edit the inventory/hosts file for your IP addresses and username, SSH keys, then run:
 
 ```
-ansible-playbook -i inventory site.yml
+ansible-playbook site.yml
 ```
