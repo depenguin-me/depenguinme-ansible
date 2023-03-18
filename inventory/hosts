@@ -19,11 +19,8 @@ conf_disktype=mirror
 run_installer=1
 
 # replace your.server.hostname where applicable
-[myhosts]
-your.server.hostname
-
 [linux]
-linux ansible_host=your.server.hostname ansible_port=22
+linuxrescue ansible_host=your.server.hostname ansible_port=22
 
 [depenguinme]
 depenguininstaller ansible_host=your.server.hostname ansible_port=1022
