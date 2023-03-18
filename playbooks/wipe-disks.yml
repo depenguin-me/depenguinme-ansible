@@ -1,6 +1,6 @@
 ---
 
 - hosts: depenguinme
-  remote_user: "{{ my_default_username }}"
+  remote_user: "{{ depenguinusername }}"
   roles:
     - wipe_mounted_disks
