@@ -5,4 +5,4 @@
   become_user: root
   shell:
     cmd: |
-      /root/depenguin_bsdinstall.sh 
+      cd /root; ./depenguin_bsdinstall.sh 

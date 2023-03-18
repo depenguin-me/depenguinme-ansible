@@ -6,6 +6,7 @@
   copy:
     dest: /root/depenguin_settings.sh
     content: |
+      #!/bin/sh
       conf_hostname="{{ conf_hostname }}"
       conf_interface="{{ conf_interface }}"
       conf_ipv4="{{ conf_ipv4 }}"
