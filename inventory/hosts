@@ -23,10 +23,10 @@ your.server.hostname
 
 # do not edit below here unless you know what you're doing
 [linux]
-myhosts[1] ansible_port=22
+myhosts[1:1] ansible_port=22
 
 [depenguinme]
-myhosts[1] ansible_port=1022
+myhosts[1:1] ansible_port=1022
 
 [bsd]
-myhosts[1] ansible_port=22
+myhosts[1:1] ansible_port=22
