@@ -11,3 +11,4 @@
   shell:
     cmd: |
       ./mfsbsd_clean.sh zroot {{ conf_disks }}
+  when: ansible_facts['caution_wipe_disks']|lower == 'yes'

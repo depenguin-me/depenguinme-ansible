@@ -4,4 +4,3 @@
   remote_user: "{{ my_default_username }}"
   roles:
     - wipe_mounted_disks
-  when: ansible_facts['caution_wipe_disks']|lower == 'yes'
