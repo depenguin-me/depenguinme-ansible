@@ -9,7 +9,7 @@
   import_playbook: playbooks/depenguin-init.yml
 
 - name: Install python in mfsbsd
-  any_errors_fatal: true
+  any_errors_fatal: false
   import_playbook: playbooks/install-python.yml
 
 - name: Wipe disks if variable caution_wipe_disks is set to yes in inventory

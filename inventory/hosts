@@ -26,9 +26,6 @@ linuxrescue ansible_host=your.server.hostname ansible_port=22
 [rawdepenguinme]
 rawdepenguininstaller ansible_host=your.server.hostname ansible_user=mfsbsd ansible_port=1022
 
-[rawdepenguinme:vars]
-ansible_python_interpreter=auto_silent
-
 [depenguinme]
 depenguininstaller ansible_host=your.server.hostname ansible_username=mfsbsd ansible_port=1022
 
