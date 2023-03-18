@@ -11,6 +11,9 @@
   shell:
     cmd: |
       ./run.sh {{ depenguin_my_pub_key }} 
+  register: depenguinme_bg
+  async: 1000
+  poll: 0
 
 - name: Pause for 1 min to allow VM to start up
   ansible.builtin.pause:

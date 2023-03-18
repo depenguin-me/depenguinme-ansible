@@ -24,7 +24,7 @@ run_installer=1
 linuxrescue ansible_host=your.server.hostname ansible_port=22
 
 [depenguinme]
-depenguininstaller ansible_host=your.server.hostname ansible_port=1022
+depenguininstaller ansible_host=your.server.hostname ansible_username=mfsbsd ansible_port=1022
 
 [bsd]
 your.server.hostname ansible_host=your.server.hostname ansible_port=22
