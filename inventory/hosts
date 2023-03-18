@@ -27,6 +27,9 @@ localhost ansible_python_interpreter="env python3"
 [linux]
 linuxrescue ansible_host=your.server.hostname ansible_port=22
 
+[rawdepenguinme]
+rawdepenguininstaller ansible_host=server.bretton.consulting ansible_user=mfsbsd ansible_port=1022
+
 [depenguinme]
 depenguininstaller ansible_host=your.server.hostname ansible_username=mfsbsd ansible_port=1022
 
