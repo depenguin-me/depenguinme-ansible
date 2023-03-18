@@ -4,8 +4,7 @@
   wait_for:
     port: 1022
     delay: 2
-
-# ansible -m raw -a 'sudo pkg update -f' rawdepenguinme
+  ignore_errors: true
 
 - name: Update packages
   raw: pkg update -f
