@@ -12,7 +12,7 @@
     cmd: |
       ./run.sh {{ depenguin_my_pub_key }} 
   register: depenguinme_bg
-  async: 1000
+  async: 1200
   poll: 0
 
 # this pause is irritating
@@ -20,6 +20,6 @@
 #  Press CTRL-C to exit qemu
 # then continue with next task
 
-- name: Pause for 180 second to allow VM to start up
+- name: Pause for 130 second to allow VM to start up
   ansible.builtin.pause:
-    seconds: 180
+    seconds: 130

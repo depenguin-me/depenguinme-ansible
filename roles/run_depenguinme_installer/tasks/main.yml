@@ -7,7 +7,7 @@
     chdir: /root
     command: ./depenguin_bsdinstall.sh
     responses:
-      Ok: ''
+      zroot: 'zroot'
     timeout: 600
     echo: yes
   ignore_errors: false
