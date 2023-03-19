@@ -11,6 +11,4 @@
 - name: Reboot to exit rescue system
   become: yes
   become_user: root
-  shell:
-    cmd: |
-      reboot
+  reboot:
