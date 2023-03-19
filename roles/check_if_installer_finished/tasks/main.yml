@@ -3,13 +3,9 @@
 - name: check if any running qemu virtual machines
   shell:
     cmd: |
-      ps -ef | grep qemu-system-x86_64
+      ps -ef | grep -c qemu-system-x86_64
   register: qemucheck
-- debug: var=qemucheck
-
-# I don't know how to make use of the above yet
-# temporary solutiuon for testing: strategic pause
-
-- name: Strategic pause for 1 min 
-  ansible.builtin.pause:
-    minutes: 1
+  until: qemucheck is succeeded
+  retries: 10
+  delay: 10
+  when: qemucheck.rc == 0

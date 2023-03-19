@@ -4,7 +4,7 @@
   become: yes
   become_user: root
   shell:
+    chdir: /root
     cmd: |
-      echo "ACCEPTDATALOSS" | /root/mfsbsd_clean.sh zroot "{{ conf_disks }}"
-  #when: ansible_facts['caution_wipe_disks']|lower == 'yes'
-  # condition not working!
+      echo "ACCEPTDATALOSS" | ./mfsbsd_clean.sh zroot "{{ conf_disks }}"
+  ignore_errors: true

@@ -8,7 +8,7 @@
   any_errors_fatal: true
   import_playbook: playbooks/depenguin-init.yml
 
-- name: Install python in mfsbsd
+- name: Install python3 in mfsbsd
   any_errors_fatal: false
   import_playbook: playbooks/install-python.yml
 
@@ -21,7 +21,7 @@
   import_playbook: playbooks/depenguin-install.yml
 
 - name: Connect to rescue system and reboot
-  any_errors_fatal: true
+  any_errors_fatal: false
   import_playbook: playbooks/exit-rescue.yml
 
 - name: Connect to resulting BSD host and perform upgrades

@@ -7,7 +7,7 @@
   ignore_errors: false
 
 - name: Update packages
-  raw: env ASSUME_ALWAYS_YES=yes pkg install python3 py39-pexpect
+  raw: env ASSUME_ALWAYS_YES=yes pkg install python3
   become: true
   become_user: root
   ignore_errors: false

@@ -1,13 +1,33 @@
 ---
 
-- name: Run the depenguin.me installer
+# Click0 uses tmux for custom install script here:
+# https://github.com/click0/ansible-freebsd-install-on-zfs-lite/blob/main/tasks/install_freebsd.yml
+# 
+# We do similar, and start installer in tmux session, then pass in the ENTER key to the named tmux session
+# to get around the dialog box getting stuck with errpr message about zroot existing, and asking to press enter
+#
+# dialog --title ZFS Configuration --backtitle FreeBSD Installer --hline --ok-label Ok --no-cancel --inputbox zroot is already taken, please enter a name for the ZFS pool \011(Or confirm using the same name by just pressing enter) 8 80 zroot
+#
+
+- name: Run the depenguin.me installer in tmux session
   become: yes
   become_user: root
-  expect:
+  shell:
     chdir: /root
-    command: ./depenguin_bsdinstall.sh
-    responses:
-      zroot: 'zroot'
-    timeout: 600
-    echo: yes
+    cmd: |
+      tmux new-session -d -s installer.0 "sh ./depenguin_bsdinstall.sh"
+  ignore_errors: false
+
+- name: Sleep for 90 seconds and timeout
+  wait_for:
+    delay: 90
+    timeout: 0
+
+- name: Send ENTER to tmux session to continue with zroot default
+  become: yes
+  become_user: root
+  shell:
+    chdir: /root
+    cmd: |
+      tmux send-keys -t installer.0 ENTER
   ignore_errors: false

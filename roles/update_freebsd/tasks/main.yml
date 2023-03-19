@@ -1,10 +1,5 @@
 ---
 
-# pause to allow booting, may require longer
-- name: Strategic pause for 2 min to allow booting
-  ansible.builtin.pause:
-    minutes: 2
-
 - name: Fetch any new FreeBSD updates
   become: yes
   become_user: root

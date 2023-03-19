@@ -1,13 +1,14 @@
 ---
 
-- name: Wait for port 22 to become open, wait for 2 seconds
-  wait_for:
-    port: 22
-    delay: 2
-
 - name: Reboot to exit rescue system
   become: yes
   become_user: root
   shell:
     cmd: |
       reboot
+
+- name: Sleep for 120 seconds and timeout
+  wait_for:
+    delay: 120
+    timeout: 0
+  ignore_errors: true
