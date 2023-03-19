@@ -3,6 +3,11 @@
 - name: Run the depenguin.me installer
   become: yes
   become_user: root
-  shell:
-    cmd: |
-      cd /root; ./depenguin_bsdinstall.sh 
+  expect:
+    chdir: /root
+    command: ./depenguin_bsdinstall.sh
+    responses:
+      Ok: ''
+    timeout: 600
+    echo: yes
+  ignore_errors: false
