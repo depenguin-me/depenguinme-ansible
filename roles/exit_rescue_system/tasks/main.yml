@@ -12,7 +12,7 @@
   become: yes
   become_user: root
   reboot:
-    reboot_timeout: 3600
+    reboot_timeout: 300
 
 #- name: Reboot to exit rescue system
 #  become: yes
