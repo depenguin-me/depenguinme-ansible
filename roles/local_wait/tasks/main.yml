@@ -1,0 +1,6 @@
+---
+
+- name: Local pause for 180 seconds to allow remote server to boot up
+  wait_for:
+    delay: 180
+    timeout: 0

@@ -14,9 +14,3 @@
   shell:
     cmd: |
       reboot
-
-- name: Sleep for 120 seconds and timeout
-  wait_for:
-    delay: 120
-    timeout: 0
-  ignore_errors: true
