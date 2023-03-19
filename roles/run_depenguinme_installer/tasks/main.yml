@@ -4,7 +4,7 @@
 # https://github.com/click0/ansible-freebsd-install-on-zfs-lite/blob/main/tasks/install_freebsd.yml
 # 
 # We do similar, and start installer in tmux session, then pass in the ENTER key to the named tmux session
-# to get around the dialog box getting stuck with errpr message about zroot existing, and asking to press enter
+# to get around the dialog box getting stuck with error message about zroot existing, and asking to press enter
 #
 # dialog --title ZFS Configuration --backtitle FreeBSD Installer --hline --ok-label Ok --no-cancel --inputbox zroot is already taken, please enter a name for the ZFS pool \011(Or confirm using the same name by just pressing enter) 8 80 zroot
 #
