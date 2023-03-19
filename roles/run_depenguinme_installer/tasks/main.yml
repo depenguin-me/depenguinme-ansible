@@ -18,16 +18,16 @@
       tmux new-session -d -s installer.0 "sh ./depenguin_bsdinstall.sh"
   ignore_errors: false
 
-- name: Sleep for 90 seconds and timeout
+- name: Sleep for 60 seconds and timeout
   wait_for:
-    delay: 90
+    delay: 60
     timeout: 0
 
-- name: Send ENTER to tmux session to continue with zroot default
+- name: Send zroot ENTER to tmux session to continue with zroot default
   become: yes
   become_user: root
   shell:
     chdir: /root
     cmd: |
-      tmux send-keys -t installer.0 ENTER
+      tmux send-keys -t installer.0 "zroot" ENTER
   ignore_errors: false

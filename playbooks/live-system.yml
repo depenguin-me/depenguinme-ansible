@@ -3,6 +3,6 @@
 - hosts: bsd
   remote_user: "{{ my_default_username }}"
   roles:
-    - check_server_alive
+    #- check_server_alive
     - update_freebsd
     - update_packages

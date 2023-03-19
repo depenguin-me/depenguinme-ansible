@@ -11,8 +11,14 @@
 - name: Reboot to exit rescue system
   become: yes
   become_user: root
-  shell:
-   cmd: |
-     sleep 5 && reboot
-  async: 1
-  poll: 0
+  reboot:
+    reboot_timeout: 3600
+
+#- name: Reboot to exit rescue system
+#  become: yes
+#  become_user: root
+#  shell:
+#   cmd: |
+#     sleep 5 && reboot
+#  async: 1
+#  poll: 0
