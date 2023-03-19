@@ -1,6 +1,10 @@
 ---
 
-- name: Wait for the machine to come back online
+- name: Pause for 180 second to allow the freshly installed server to boot up
+  ansible.builtin.pause:
+    seconds: 180
+
+- name: Check if connection is possible
   wait_for_connection:
     connect_timeout: 60
     sleep: 5

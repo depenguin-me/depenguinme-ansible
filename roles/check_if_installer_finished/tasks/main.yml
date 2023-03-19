@@ -1,8 +1,8 @@
 ---
 
-- name: Sleep for 60 seconds and timeout to let install finish
+- name: Sleep for 90 seconds to let install finish
   wait_for:
-    delay: 60
+    delay: 90
     timeout: 0
   ignore_errors: true
 
