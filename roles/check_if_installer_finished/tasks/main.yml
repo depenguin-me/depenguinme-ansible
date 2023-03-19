@@ -1,5 +1,11 @@
 ---
 
+- name: Sleep for 60 seconds and timeout to let install finish
+  wait_for:
+    delay: 60
+    timeout: 0
+  ignore_errors: true
+
 - name: check if any running qemu virtual machines
   shell:
     cmd: |

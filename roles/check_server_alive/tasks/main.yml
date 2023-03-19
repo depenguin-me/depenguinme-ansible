@@ -1,0 +1,8 @@
+---
+
+- name: Wait for the machine to come back online
+  wait_for_connection:
+    connect_timeout: 60
+    sleep: 5
+    delay: 5
+    timeout: 300

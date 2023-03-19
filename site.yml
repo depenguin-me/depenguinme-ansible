@@ -24,9 +24,9 @@
   any_errors_fatal: false
   import_playbook: playbooks/exit-rescue.yml
 
-- name: Local pause to wait for server boot
-  any_errors_fatal: true
-  import_playbook: playbooks/local-wait.yml
+#- name: Local pause to wait for server boot
+#  any_errors_fatal: true
+#  import_playbook: playbooks/local-wait.yml
 
 - name: Connect to resulting BSD host and perform upgrades
   any_errors_fatal: true
