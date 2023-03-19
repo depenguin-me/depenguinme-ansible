@@ -1,5 +1,13 @@
 ---
 
+- name: find success in qemu exit file
+  lineinfile: 
+    dest: /tmp/qemu_is_exited
+    line: "success"
+  check_mode: yes
+  register: presence
+  failed_when: presence.changed
+
 - name: Reboot to exit rescue system
   become: yes
   become_user: root

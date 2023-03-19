@@ -3,9 +3,8 @@
 - name: check if any running qemu virtual machines
   shell:
     cmd: |
-      ps -ef | grep -c qemu-system-x86_64
+      if [ -z $(pgrep qemu-system-x86_64) ]; then echo "success" > /tmp/qemu_is_exited; fi
   register: qemucheck
   until: qemucheck is succeeded
   retries: 10
   delay: 10
-  when: qemucheck.rc == 0
