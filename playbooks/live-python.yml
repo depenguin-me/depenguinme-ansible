@@ -2,6 +2,6 @@
 
 - hosts: bsd
   remote_user: "{{ my_default_username }}"
+  gather_facts: false
   roles:
-    - update_freebsd
-    - update_packages
+    - install_python

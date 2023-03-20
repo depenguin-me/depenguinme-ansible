@@ -28,6 +28,12 @@
   any_errors_fatal: false
   import_playbook: playbooks/exit-rescue.yml
 
-- name: Connect to resulting BSD host and perform upgrades
+- name: Connect to resulting BSD host and install python3
+  any_errors_fatal: false
+  import_playbook: playbooks/live-python.yml
+
+- name: Perform upgrades on newly installed host
   any_errors_fatal: false
   import_playbook: playbooks/live-system.yml
+
+# add your playbooks below here
