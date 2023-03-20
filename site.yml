@@ -20,6 +20,10 @@
   any_errors_fatal: true
   import_playbook: playbooks/depenguin-install.yml
 
+- name: Connect to rescue system and check if installer finished
+  any_errors_fatal: true
+  import_playbook: playbooks/check-installer-finished.yml
+
 - name: Connect to rescue system and reboot
   any_errors_fatal: false
   import_playbook: playbooks/exit-rescue.yml

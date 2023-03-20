@@ -3,6 +3,5 @@
 - hosts: linux
   remote_user: "{{ linux_username }}"
   gather_facts: false
-  ignore_unreachable: true
   roles:
-    - exit_rescue_system
+    - check_if_installer_finished
