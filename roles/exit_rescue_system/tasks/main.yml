@@ -15,10 +15,9 @@
   async: 1
   poll: 0
 
-- name: Adding delay for system to come up
-  wait_for:
-    timeout: 120
-  delegate_to: localhost
+- name: pause for 120 seconds
+  pause:
+    seconds: 120
 
 # need to perform check on bsd host port 22 with ultimate username
 - name: Wait for the reboot and reconnect
