@@ -11,14 +11,21 @@
 - name: Reboot to exit rescue system
   become: yes
   become_user: root
-  reboot:
-    reboot_timeout: 300
+  shell: "sleep 5 && reboot"
+  async: 1
+  poll: 0
 
-#- name: Reboot to exit rescue system
-#  become: yes
-#  become_user: root
-#  shell:
-#   cmd: |
-#     sleep 5 && reboot
-#  async: 1
-#  poll: 0
+- name: Adding delay for system to come up
+  wait_for:
+    timeout: 120
+  delegate_to: localhost
+
+# need to perform check on bsd host port 22 with ultimate username
+- name: Wait for the reboot and reconnect
+  wait_for:
+    port: 22
+    host: '{{ (ansible_ssh_host|default(ansible_host))|default(inventory_hostname) }}'
+    search_regex: OpenSSH
+    delay: 10
+    timeout: 300
+  connection: local
