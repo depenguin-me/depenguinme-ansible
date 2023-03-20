@@ -39,6 +39,6 @@ depenguininstaller ansible_host=your.server.hostname ansible_username=mfsbsd ans
 ansible_python_interpreter=/usr/local/bin/python3
 ansible_interpreter_python_fallback=['/usr/local/bin/python', '/usr/local/bin/python3', '/usr/local/bin/python3.9']
 
-# edit your.server.hostname ansible_host=your.server.hostname and nothing else
+# edit your.server.hostname ansible_host=your.server.hostname ansible_user=your-username and nothing else
 [bsd]
 your.server.hostname ansible_host=your.server.hostname ansible_user=your-username ansible_port=22
