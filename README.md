@@ -20,7 +20,7 @@ Do not change the SSH port assignments!
 
 ## Running playbooks
 
-To run, make sure server is rescue mode, then from your computer run:
+Make sure server is rescue mode, then from your computer run:
 
 ```
 ansible-playbook site.yml
