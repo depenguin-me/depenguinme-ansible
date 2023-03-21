@@ -1,23 +1,32 @@
 # Ansible recipe for depenguin.me
 
-This is a simple ansible recipe to install FreeBSD-13.1 on a suitable host running a Linux-based rescue system.
+This is an ansible recipe to install FreeBSD-13.1 on a suitable host running a Linux-based rescue system.
 
 ## Prepare
 
 The server you wish to configure must be booted in the rescue console before running the playbook. 
 
-The IP address and SSH credentials for this server need to be included in the inventory/hosts file.
+Note your host's IP addresses and gateway.
 
-## Other variables
+Make sure your SSH public key is accessible via a URL! e.g. `http://host.tld/path/to/key.pub` 
 
-Edit inventory/hosts to set other variables relevant to the config. 
+## Update inventory file
+
+The hostname, IP address of destination server, and your SSH public key URL, must to be set in the `inventory/hosts` file.
+
+See comments for other optional edits.
 
 Do not change the SSH port assignments!
 
-## Running
+## Running playbooks
 
-To run, edit the inventory/hosts file for your IP addresses and username, SSH keys, then run:
+To run, make sure server is rescue mode, then from your computer run:
 
 ```
 ansible-playbook site.yml
 ```
+
+## Tested
+
+Tested on:
+* Hetzner AX41 (2023-03-19)
