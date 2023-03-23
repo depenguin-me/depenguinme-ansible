@@ -5,3 +5,6 @@
   roles:
     - update_freebsd
     - update_packages
+    - required_bsd_packages
+    - common_postinstall_tasks
+    

@@ -1,12 +1,32 @@
 ---
 
-- name: Upgrade FreeBSD packages
+# this is getting stuck for some reason
+# - name: Upgrade FreeBSD packages
+#   become: yes
+#   become_user: root
+#   shell: pkg upgrade
+#   when: ansible_distribution == 'FreeBSD'
+#   register: result_pkg
+#   changed_when: "'Your packages are up to date' not in result_pkg.stdout"
+
+# - debug: var=result_pkg
+#   when: result_pkg.changed
+
+# Go with a manual process for now
+- name: Upgrade package pkg
   become: yes
   become_user: root
-  shell: pkg upgrade
-  when: ansible_distribution == 'FreeBSD'
-  register: result_pkg
-  changed_when: "'Your packages are up to date' not in result_pkg.stdout"
+  shell:
+    cmd: "pkg upgrade -qy pkg"
 
-- debug: var=result_pkg
-  when: result_pkg.changed
+- name: Force package update
+  become: yes
+  become_user: root
+  shell:
+    cmd: "pkg update -fq"
+
+- name: Upgrade packages
+  become: yes
+  become_user: root
+  shell:
+    cmd: "pkg upgrade -qy"

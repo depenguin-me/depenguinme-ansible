@@ -1,0 +1,17 @@
+---
+
+# We need to set quarterly or latest early in the process, where the raw python install will install
+# from the correct package source. Otherwise we install python from latest, then later package from
+# quarterly, if set. Better to avoid this and just via raw first.
+- name: Create pkg config directory
+  raw: mkdir -p /usr/local/etc/pkg/repos
+  become: true
+  become_user: root
+  ignore_errors: false
+
+# echo in FreeBSD.conf with configured package source for quarterly or latest
+- name: Create pkg config
+  raw: "echo 'FreeBSD: { url: \"pkg+http://pkg.FreeBSD.org/${ABI}/{{ bsd_packages_stream }}\" }' > /usr/local/etc/pkg/repos/FreeBSD.conf"
+  become: true
+  become_user: root
+  ignore_errors: false

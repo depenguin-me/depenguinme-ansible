@@ -1,0 +1,4 @@
+---
+
+# Common post install tasks can go here
+# Keep specific to base system install, and setup a new playbook for custom servers

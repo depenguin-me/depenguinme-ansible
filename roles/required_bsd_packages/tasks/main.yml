@@ -1,0 +1,44 @@
+---
+
+- name: Install a few useful packages
+  become: yes
+  become_user: root
+  shell:
+    cmd: |
+      pkg install -y {{ my_custom_packages }}
+
+- name: Enable microcode_update
+  become: yes
+  become_user: root
+  ansible.builtin.service:
+    name: microcode_update
+    enabled: yes
+
+- name: Start microcode_update
+  become: yes
+  become_user: root
+  ansible.builtin.service:
+    name: microcode_update
+    state: started
+
+- name: Create /usr/local/etc/smartd.conf
+  become: yes
+  become_user: root
+  copy:
+    dest: /usr/local/etc/smartd.conf
+    content: |
+      DEVICESCAN
+
+- name: Enable smartd
+  become: yes
+  become_user: root
+  ansible.builtin.service:
+    name: smartd
+    enabled: yes
+
+- name: Start smartd
+  become: yes
+  become_user: root
+  ansible.builtin.service:
+    name: smartd
+    state: started

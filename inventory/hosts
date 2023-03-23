@@ -1,22 +1,28 @@
 [all:vars]
+# always edit these variables
+depenguin_my_pub_key=http://url.host/key.pub
+my_default_username=your-username
+conf_hostname=your.server.hostname
+conf_ipv4=1.2.3.4
+conf_ipv6=abcd:xxxx:yyyy:zzzz::p
+conf_gateway=1.2.3.9
+bsd_packages_stream=quarterly
+# -- optional edits from here ---
+linux_username=root
+# freebsd interface in resulting system
+conf_interface=igb0
+conf_nameserveripv4one=185.12.64.1
+conf_nameserveripv4two=185.12.64.2
+conf_nameserveripv6one=2a01:4ff:ff00::add:1
+conf_nameserveripv6two=2a01:4ff:ff00::add:2
+conf_disks="ada0 ada1"
+conf_disktype=mirror
+# do not edit
 depenguin_dl_url=https://depenguin.me/run.sh
 depenguin_dl_filename=run.sh
-depenguin_my_pub_key=http://url.host/key.pub  # always edit
-my_default_username=your-username             # always edit
-linux_username=root
 depenguinusername=mfsbsd
-conf_hostname=your.server.hostname            # always edit
-conf_interface=igb0
-conf_ipv4=1.2.3.4                             # always edit
-conf_ipv6=abcd:xxxx:yyyy:zzzz::p              # always edit
-conf_gateway=1.2.3.9                          # always edit
-conf_nameserveripv4one=185.12.64.1            # optional: set DNS servers
-conf_nameserveripv4two=185.12.64.2            # optional: set DNS servers
-conf_nameserveripv6one=2a01:4ff:ff00::add:1   # optional: set DNS servers
-conf_nameserveripv6two=2a01:4ff:ff00::add:2   # optional: set DNS servers
-conf_disks="ada0 ada1"                        # optional: edit conf_disks by listing disks
-conf_disktype=mirror                          # optional: edit conf_disktype
 run_installer=1
+my_custom_packages="bash devcpu-data htop jq jo mtr nano rsync smartmontools sudo tree"
 
 # replace your.server.hostname where applicable
 [local]
@@ -32,12 +38,12 @@ rawdepenguininstaller ansible_host=your.server.hostname ansible_user=mfsbsd ansi
 
 # edit ansible_host=your.server.hostname and nothing else
 [depenguinme]
-depenguininstaller ansible_host=your.server.hostname ansible_username=mfsbsd ansible_port=1022
+depenguininstaller ansible_host=your.server.hostname ansible_user=mfsbsd ansible_port=1022
 
 [depenguinme:vars]
 ansible_python_interpreter=/usr/local/bin/python3
 ansible_interpreter_python_fallback=['/usr/local/bin/python', '/usr/local/bin/python3', '/usr/local/bin/python3.9']
 
-# edit your.server.hostname ansible_host=your.server.hostname ansible_user=your-username and nothing else
+# edit ansible_host=your.server.hostname ansible_user=your-username and nothing else
 [bsd]
-your.server.hostname ansible_host=your.server.hostname ansible_user=your-username ansible_port=22
+bsdhost ansible_host=your.server.hostname ansible_user=your-username ansible_port=22

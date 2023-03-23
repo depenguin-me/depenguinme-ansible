@@ -3,5 +3,6 @@
 - hosts: linux
   remote_user: "{{ linux_username }}"
   roles:
+    - gather_rescue_information
     - download_depenguinme_script
     - run_depenguinme_script

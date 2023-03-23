@@ -4,4 +4,5 @@
   remote_user: "{{ my_default_username }}"
   gather_facts: false
   roles:
+    - set_package_stream
     - install_python

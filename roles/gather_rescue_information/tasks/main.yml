@@ -1,0 +1,44 @@
+---
+
+# sourced from https://stackoverflow.com/a/68513717
+# Gather some drive information to be used in determining installation parameters
+# automatically
+
+- name: initialize empty list for devices
+  set_fact:
+    storage_devices: []
+  no_log: true
+
+- name: get SATA and NVMe devices
+  set_fact:
+    storage_devices: "{{ storage_devices + [item.key] }}"
+  no_log: true
+  with_dict: "{{ ansible_devices }}"
+  when: "item.value.host.startswith('SATA controller:') or
+          item.value.host.startswith('Non-Volatile memory controller:')"
+
+- name: show all values for selected devices
+  debug: msg="{{ ansible_devices[item] }}"
+  loop: "{{ storage_devices }}"
+
+- name: show devices names
+  debug: var=storage_devices
+
+- name: show first SATA or NVMe device in the list
+  debug: var=storage_devices[0]
+
+- name: initialize empty list for network settings
+  set_fact:
+    my_network: []
+  no_log: true
+
+# Gather IP address information to be used in determining installation parameters
+# automatically
+
+# todo: get ipv4 info
+# {{ ansible_default_ipv4 }}
+#
+
+# todo: get ipv6 info
+# {{ ansible_default_ipv6 }}
+#
