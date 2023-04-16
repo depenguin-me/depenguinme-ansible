@@ -29,5 +29,5 @@
   shell:
     chdir: /root
     cmd: |
-      tmux send-keys -t installer.0 "zroot" ENTER
+      tmux send-keys -t installer.0 BSpace "zroot" ENTER
   ignore_errors: false
