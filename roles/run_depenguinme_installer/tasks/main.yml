@@ -23,11 +23,12 @@
     delay: 60
     timeout: 0
 
-- name: Send zroot ENTER to tmux session to continue with zroot default
-  become: yes
-  become_user: root
-  shell:
-    chdir: /root
-    cmd: |
-      tmux send-keys -t installer.0 BSpace "zroot" ENTER
-  ignore_errors: false
+# this might not be needed any more, retaining here for future use
+#- name: Send zroot ENTER to tmux session to continue with zroot default
+#  become: yes
+#  become_user: root
+#  shell:
+#    chdir: /root
+#    cmd: |
+#      tmux send-keys -t installer.0 BSpace "zroot" ENTER
+#  ignore_errors: false
