@@ -10,7 +10,7 @@
   become_user: root
   shell:
     cmd: |
-      ./run.sh {{ depenguin_my_pub_key }} 
+      ./{{ depenguin_dl_filename }} {{ depenguin_my_pub_key }} 
   register: depenguinme_bg
   async: 1200
   poll: 0

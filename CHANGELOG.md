@@ -1,3 +1,9 @@
+0.3
+
+* Call inventory variable for run.sh filename
+
+---
+
 0.2
 
 * Fixing tmux send-keys duplicate zroot issue
