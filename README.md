@@ -1,6 +1,6 @@
 # Ansible recipe for depenguin.me
 
-This is an ansible recipe to install FreeBSD-13.2 on a suitable host running a Linux-based rescue system.
+This is an ansible recipe to install FreeBSD-14.0 on a suitable host running a Linux-based rescue system.
 
 ## Prepare
 
