@@ -1,3 +1,10 @@
+0.4
+
+* Update wipe disks section to work with tmux session
+* Testing with FreeBSD 14.0 QA images
+
+---
+
 0.3
 
 * Call inventory variable for run.sh filename

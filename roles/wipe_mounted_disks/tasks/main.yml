@@ -6,5 +6,29 @@
   shell:
     chdir: /root
     cmd: |
-      echo "ACCEPTDATALOSS" | ./mfsbsd_clean.sh zroot "{{ conf_disks }}"
-  ignore_errors: true
+      tmux new-session -d -s wipedisks.0 "sh ./mfsbsd_clean.sh zroot {{ conf_disks }}"
+  ignore_errors: false
+  when: caution_wipe_disks == 'yes'
+
+- name: Sleep for 5 seconds and timeout
+  wait_for:
+    delay: 5
+    timeout: 0
+  when: caution_wipe_disks == 'yes'
+
+- name: Send ACCEPTDATALOSS to tmux session to continue with wiping disks
+  become: yes
+  become_user: root
+  shell:
+    chdir: /root
+    cmd: |
+      tmux send-keys -t wipedisks.0 "ACCEPTDATALOSS" ENTER
+  ignore_errors: false
+  when: caution_wipe_disks == 'yes'
+
+- name: Sleep for 15 seconds and timeout
+  wait_for:
+    delay: 15
+    timeout: 0
+  when: caution_wipe_disks == 'yes'
+
