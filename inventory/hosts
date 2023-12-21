@@ -7,16 +7,20 @@ conf_ipv4=YOUR-IPV4-ADDRESS
 conf_ipv6=YOUR-IPV6-ADDRESS
 conf_gateway=YOUR-IPV4-GATEWAY
 bsd_packages_stream=quarterly
+# freebsd interface in resulting system, set to igb0 or ixl0 or em0 or other
+conf_interface=SET-ME
+# set to yes to wipe disks, no to leave them alone
+# default is no to be non-destructive but install might fail if existing zroot
+caution_wipe_disks=no
 # -- optional edits from here ---
+# leave this as root, it's for access to rescue system
 linux_username=root
-# freebsd interface in resulting system, change if different
-conf_interface=SET-NIC-igb0-OR-eth0-ETC
 # change DNS servers for another environment, this is setup for Hetzner
 conf_nameserveripv4one=185.12.64.1
 conf_nameserveripv4two=185.12.64.2
 conf_nameserveripv6one=2a01:4ff:ff00::add:1
 conf_nameserveripv6two=2a01:4ff:ff00::add:2
-# can be "ada0 ada1 ada2 ada3" for four disk systems
+# can be "ada0 ada1" or "ada0 ada1 ada2 ada3" for four disk system
 conf_disks="ada0 ada1"
 # can be stripe, mirror, raid10 or raidz1
 # from ZFSBOOT_VDEV_TYPE in bsdinstall man page
@@ -56,3 +60,7 @@ ansible_interpreter_python_fallback=['/usr/local/bin/python', '/usr/local/bin/py
 # edit ansible_host=YOUR.SERVER.HOSTNAME ansible_user=YOUR-USERNAME and nothing else
 [bsd]
 bsdhost ansible_host=YOUR.SERVER.HOSTNAME ansible_user=YOUR-USERNAME ansible_port=22
+
+[bsd:vars]
+ansible_python_interpreter=/usr/local/bin/python3
+ansible_interpreter_python_fallback=['/usr/local/bin/python', '/usr/local/bin/python3', '/usr/local/bin/python3.9']

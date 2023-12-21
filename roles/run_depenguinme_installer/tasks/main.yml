@@ -19,6 +19,7 @@
       tmux new-session -d -s installer.0 "sh -c '/root/depenguin_bsdinstall.sh'"
   ignore_errors: false
 
+# Removed because ssh dies and playbook ends with error
 # - name: Sleep for {{ wait_depenguin_install_process }} seconds and timeout
 #   wait_for:
 #     delay: "{{ wait_depenguin_install_process }}"
