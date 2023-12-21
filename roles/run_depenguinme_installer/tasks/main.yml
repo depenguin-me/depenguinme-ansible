@@ -9,18 +9,19 @@
 # dialog --title ZFS Configuration --backtitle FreeBSD Installer --hline --ok-label Ok --no-cancel --inputbox zroot is already taken, please enter a name for the ZFS pool \011(Or confirm using the same name by just pressing enter) 8 80 zroot
 #
 
+# FreeBSD14 seems to want tmux commands run with 'sh -c' prefix for success else failures 
 - name: Run the depenguin.me installer in tmux session
   become: yes
   become_user: root
   shell:
     chdir: /root
     cmd: |
-      tmux new-session -d -s installer.0 "sh ./depenguin_bsdinstall.sh"
+      tmux new-session -d -s installer.0 "sh -c depenguin_bsdinstall.sh"
   ignore_errors: false
 
-- name: Sleep for 60 seconds and timeout
+- name: Sleep for {{ wait_depenguin_install_process }} seconds and timeout
   wait_for:
-    delay: 60
+    delay: "{{ wait_depenguin_install_process }}"
     timeout: 0
 
 # this might not be needed any more, retaining here for future use
