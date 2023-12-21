@@ -1,12 +1,19 @@
 ---
 
+# leaving this here for future reference, source: https://gist.github.com/theory14/1ea4075287a17fb9f66e
+- name: Check status of jailing
+  shell: "sysctl -n security.jail.jailed"
+  register: is_jail
+  when: "ansible_os_family == 'FreeBSD'"
+
 - name: Fetch any new FreeBSD updates
   become: yes
   become_user: root
-  shell: freebsd-update fetch
-  when: ansible_distribution == 'FreeBSD'
+  shell: freebsd-update --not-running-from-cron fetch
+  when: "ansible_os_family == 'FreeBSD' and is_jail.stdout == '0'"
   register: result_update
-  changed_when: "'No updates needed' not in result_update.stdout"
+  changed_when: "'No updates needed' not in result_update.stdout and 'No updates are available to install' not in result_update.stdout"
+  ignore_errors: yes
 
 - debug: var=result_update
   when: result_update.changed
@@ -14,7 +21,7 @@
 - name: Install FreeBSD updates
   become: yes
   become_user: root
-  shell: freebsd-update install
+  shell: freebsd-update --not-running-from-cron install
   when: ansible_distribution == 'FreeBSD' and result_update.changed
   register: result_update_install
 

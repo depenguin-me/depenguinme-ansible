@@ -16,13 +16,13 @@
   shell:
     chdir: /root
     cmd: |
-      tmux new-session -d -s installer.0 "sh -c depenguin_bsdinstall.sh"
+      tmux new-session -d -s installer.0 "sh -c '/root/depenguin_bsdinstall.sh'"
   ignore_errors: false
 
-- name: Sleep for {{ wait_depenguin_install_process }} seconds and timeout
-  wait_for:
-    delay: "{{ wait_depenguin_install_process }}"
-    timeout: 0
+# - name: Sleep for {{ wait_depenguin_install_process }} seconds and timeout
+#   wait_for:
+#     delay: "{{ wait_depenguin_install_process }}"
+#     timeout: 0
 
 # this might not be needed any more, retaining here for future use
 #- name: Send zroot ENTER to tmux session to continue with zroot default

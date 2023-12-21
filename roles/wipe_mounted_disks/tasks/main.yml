@@ -1,34 +1,29 @@
 ---
 
+- name: Check if zroot zpool exists
+  shell:
+    cmd: |
+      if [ -z $(zpool list -H -o name zroot) ]; then echo "success" > /tmp/zroot_not_exists; fi
+  register: zrootcheck
+  when: caution_wipe_disks == 'yes'
+
+- name: output value of zrootcheck
+  debug:
+    msg: "{{ zrootcheck }}"
+  when: zrootcheck is succeeded
+
 - name: Wipe disks
   become: yes
   become_user: root
   shell:
     chdir: /root
     cmd: |
-      tmux new-session -d -s wipedisks.0 "sh ./mfsbsd_clean.sh zroot {{ conf_disks }}"
+      sh -c "echo ACCEPTDATALOSS | ./mfsbsd_clean.sh zroot {{ conf_disks }}"
+  register: wipe_disks
+  when: caution_wipe_disks == 'yes'
   ignore_errors: false
-  when: caution_wipe_disks == 'yes'
 
-- name: Sleep for 5 seconds and timeout
-  wait_for:
-    delay: 5
-    timeout: 0
+- name: output content of wipe_disks in debug
+  debug:
+    msg: "{{ wipe_disks }}"
   when: caution_wipe_disks == 'yes'
-
-- name: Send ACCEPTDATALOSS to tmux session to continue with wiping disks
-  become: yes
-  become_user: root
-  shell:
-    chdir: /root
-    cmd: |
-      tmux send-keys -t wipedisks.0 "ACCEPTDATALOSS" ENTER
-  ignore_errors: false
-  when: caution_wipe_disks == 'yes'
-
-- name: Sleep for 15 seconds and timeout
-  wait_for:
-    delay: 15
-    timeout: 0
-  when: caution_wipe_disks == 'yes'
-

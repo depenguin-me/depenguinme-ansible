@@ -19,5 +19,6 @@
       conf_username="{{ my_default_username }}"
       conf_pubkeyurl="{{ depenguin_my_pub_key }}"
       conf_disks="{{ conf_disks }}"
-      conf_disktype="{{ conf_disktype }}" # or stripe for single disk
-      run_installer="{{ run_installer }}" # set to 1 to enable installer 
+      conf_disktype="{{ conf_disktype }}"
+      run_installer="{{ run_installer }}"
+
