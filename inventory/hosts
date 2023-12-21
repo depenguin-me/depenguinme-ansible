@@ -10,12 +10,13 @@ bsd_packages_stream=quarterly
 # -- optional edits from here ---
 linux_username=root
 # freebsd interface in resulting system, change if different
-conf_interface=igb0
+conf_interface=SET-NIC-igb0-OR-eth0-ETC
 # change DNS servers for another environment, this is setup for Hetzner
 conf_nameserveripv4one=185.12.64.1
 conf_nameserveripv4two=185.12.64.2
 conf_nameserveripv6one=2a01:4ff:ff00::add:1
 conf_nameserveripv6two=2a01:4ff:ff00::add:2
+# can be "ada0 ada1 ada2 ada3" for four disk systems
 conf_disks="ada0 ada1"
 conf_disktype=mirror
 # do not edit these
