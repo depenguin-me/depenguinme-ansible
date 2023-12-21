@@ -26,7 +26,7 @@ depenguin_dl_url=https://depenguin.me/run.sh
 depenguin_dl_filename=run.sh
 depenguinusername=mfsbsd
 run_installer=1
-my_custom_packages="bash devcpu-data htop jq jo mtr-nox11 nano rsync smartmontools sudo tree"
+my_custom_packages="bash devcpu-data htop jq jo mtr-nox11 nano rsync smartmontools sudo tree python3"
 # end do not edit
 
 # replace your.server.hostname where applicable
