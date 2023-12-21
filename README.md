@@ -15,6 +15,8 @@ Make sure your SSH public key is accessible via a URL! e.g. `http://host.tld/pat
 The hostname, IP address of destination server, interface name, and your SSH public key URL, must to be set in the 
 `inventory/hosts` file.
 
+For four disk systems use `raidz` instead of `mirror`. 
+
 See comments for other optional edits.
 
 Do not change the SSH port assignments!

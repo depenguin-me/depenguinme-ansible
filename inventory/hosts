@@ -18,6 +18,7 @@ conf_nameserveripv6one=2a01:4ff:ff00::add:1
 conf_nameserveripv6two=2a01:4ff:ff00::add:2
 # can be "ada0 ada1 ada2 ada3" for four disk systems
 conf_disks="ada0 ada1"
+# can be single, mirror or raidz
 conf_disktype=mirror
 # do not edit these
 depenguin_dl_url=https://depenguin.me/run.sh
