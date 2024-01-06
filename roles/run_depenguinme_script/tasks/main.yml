@@ -24,7 +24,7 @@
 #  ansible.builtin.pause:
 #    seconds: 180
 
-- name: Pause for {{ wait_depenguin_boot_process }} seconds to allow the VM to boot up
+- name: "Pause for {{ wait_depenguin_boot_process }} seconds to allow the VM to boot up"
   wait_for:
     delay: "{{ wait_depenguin_boot_process }}"
     timeout: 0

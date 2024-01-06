@@ -1,6 +1,6 @@
 ---
 
-- name: Sleep for {{ wait_depenguin_install_process }} seconds to let install finish
+- name: "Sleep for {{ wait_depenguin_install_process }} seconds to let install finish"
   wait_for:
     delay: "{{ wait_depenguin_install_process }}"
     timeout: 0

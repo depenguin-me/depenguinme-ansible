@@ -8,9 +8,12 @@ conf_ipv6=YOUR-IPV6-ADDRESS
 conf_gateway=YOUR-IPV4-GATEWAY
 bsd_packages_stream=quarterly
 # freebsd interface in resulting system, set to igb0 or ixl0 or em0 or other
-conf_interface=SET-ME
+# it's no longer necessary to set this, it's autodetected and whatever is set
+# here does nothing in particular
+conf_interface=igb0
 # set to yes to wipe disks, no to leave them alone
 # default is no to be non-destructive but install might fail if existing zroot
+# generally set this to yes if you're installing to a new system
 caution_wipe_disks=no
 # -- optional edits from here ---
 # leave this as root, it's for access to rescue system
