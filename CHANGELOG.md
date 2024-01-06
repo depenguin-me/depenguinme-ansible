@@ -1,3 +1,12 @@
+0.5
+
+* Various updates
+* Quote task names with variables
+* Add python virtualenv info
+* Add "--no-check-certificate" to wget command
+
+---
+
 0.4
 
 * Update wipe disks section to work with tmux session

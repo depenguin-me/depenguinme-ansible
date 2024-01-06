@@ -10,7 +10,7 @@
   become_user: root
   shell:
     cmd: |
-      wget {{ depenguin_dl_url }} -O {{ depenguin_dl_filename }}
+      wget --no-check-certificate {{ depenguin_dl_url }} -O {{ depenguin_dl_filename }}
 
 - name: Set executable permissions depenguin.me installer
   ansible.builtin.file:
