@@ -37,7 +37,7 @@ run_installer=1
 wait_depenguin_boot_process=90
 # how many seconds to wait for mfsbsd to install freebsd
 wait_depenguin_install_process=180
-my_custom_packages="bash devcpu-data htop jq jo mtr-nox11 nano rsync smartmontools sudo tree"
+my_custom_packages="bash cpu-microcode htop jq jo mtr-nox11 nano rsync smartmontools sudo tree"
 # end do not edit
 
 # replace your.server.hostname where applicable

@@ -1,3 +1,10 @@
+0.6
+
+* Increase timeout waiting after installation reboot to accomodate double reboots of systems with Realtek network cards
+* Package cpu-microcode replaces devcpu-data
+
+---
+
 0.5
 
 * Various updates

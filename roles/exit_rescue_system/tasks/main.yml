@@ -24,5 +24,5 @@
     host: '{{ (ansible_ssh_host|default(ansible_host))|default(inventory_hostname) }}'
     search_regex: OpenSSH
     delay: 10
-    timeout: 300
+    timeout: 360
   connection: local
