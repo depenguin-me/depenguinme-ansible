@@ -53,4 +53,5 @@ Or if using a virtual environment:
 
 Tested on:
 * Hetzner AX41 (2023-03-19)
-* Server Bidding: Intel Xeon E3-1275V6 (2023-12-21)
+* Hetzner Server Bidding: Intel Xeon E3-1275V6 (2023-12-21)
+* Hetzner EX44 (2024-05-04)
