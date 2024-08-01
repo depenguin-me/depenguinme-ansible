@@ -1,3 +1,10 @@
+0.7
+
+* Fix problems with flow and python3.12 by moving wait_for step into set_package_stream task
+* Set ansible_connection=local for localhost
+
+---
+
 0.6
 
 * Increase timeout waiting after installation reboot to accomodate double reboots of systems with Realtek network cards

@@ -1,5 +1,21 @@
 ---
 
+# moved from roles/exit_rescue_system/tasks/main.yml to here
+# This waits until reboot after system install is complete, and SSH avalable
+# from examples at
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/wait_for_module.html
+- name: Wait for the reboot and reconnect
+  become: false
+  ignore_unreachable: yes
+  ansible.builtin.wait_for:
+    port: 22
+    host: '{{ (ansible_ssh_host|default(ansible_host))|default(inventory_hostname) }}'
+    search_regex: OpenSSH
+    delay: 10
+    timeout: 360
+  vars:
+    ansible_connection: local
+
 # We need to set quarterly or latest early in the process, where the raw python install will install
 # from the correct package source. Otherwise we install python from latest, then later package from
 # quarterly, if set. Better to avoid this and just via raw first.

@@ -42,7 +42,7 @@ my_custom_packages="bash cpu-microcode htop jq jo mtr-nox11 nano rsync smartmont
 
 # replace your.server.hostname where applicable
 [local]
-localhost ansible_python_interpreter="env python3"
+localhost ansible_connection=local ansible_python_interpreter="env python3.12"
 
 # edit ansible_host=YOUR.SERVER.HOSTNAME and nothing else
 [linux]
@@ -66,4 +66,4 @@ bsdhost ansible_host=YOUR.SERVER.HOSTNAME ansible_user=YOUR-USERNAME ansible_por
 
 [bsd:vars]
 ansible_python_interpreter=/usr/local/bin/python3
-ansible_interpreter_python_fallback=['/usr/local/bin/python', '/usr/local/bin/python3', '/usr/local/bin/python3.9']
+ansible_interpreter_python_fallback=['/usr/local/bin/python', '/usr/local/bin/python3', '/usr/local/bin/python3.11']

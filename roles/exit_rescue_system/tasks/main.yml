@@ -15,14 +15,3 @@
   async: 1
   poll: 0
 
-# need to perform check on bsd host port 22 with ultimate username
-- name: Wait for the reboot and reconnect
-  become: false
-  ignore_unreachable: yes
-  wait_for:
-    port: 22
-    host: '{{ (ansible_ssh_host|default(ansible_host))|default(inventory_hostname) }}'
-    search_regex: OpenSSH
-    delay: 10
-    timeout: 360
-  connection: local
