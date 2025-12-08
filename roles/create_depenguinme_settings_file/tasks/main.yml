@@ -21,4 +21,5 @@
       conf_disks="{{ conf_disks }}"
       conf_disktype="{{ conf_disktype }}"
       run_installer="{{ run_installer }}"
+      tweak_ax102="{{ tweak_ax102 }}"
 

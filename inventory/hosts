@@ -33,6 +33,8 @@ depenguin_dl_url=https://depenguin.me/run.sh
 depenguin_dl_filename=run.sh
 depenguinusername=mfsbsd
 run_installer=1
+# only set tweak_ax102 to 1 if using AX102 server
+tweak_ax102=0
 # how many seconds to wait for mfsbsd to download and startup
 wait_depenguin_boot_process=90
 # how many seconds to wait for mfsbsd to install freebsd

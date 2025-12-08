@@ -1,3 +1,10 @@
+0.8
+
+* Update to include tweak_ax102 option
+* Adjust FreeBSD version info to match 14.3
+
+---
+
 0.7
 
 * Fix problems with flow and python3.12 by moving wait_for step into set_package_stream task
